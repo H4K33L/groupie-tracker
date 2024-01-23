@@ -1,44 +1,66 @@
-package main
+package Groupie
 
 import (
-    "fmt"
     "io/ioutil"
-    "log"
     "net/http"
-    "os"
     "encoding/json"
 )
 
+// all the structures used to represent api information
 type api struct {
-	artists string
-	locations string
-	dates string
-	relation string
+	Artists 	string `json:"artists"`
+	Locations 	string `json:"locations"`
+	Dates 		string `json:"dates"`
+	Relation 	string `json:"relation"`
+}
+type group struct {
+    ID              float64 `json:"id"`
+    Img             string  `json:"image"`
+    Name            string  `json:"name"`
+    Members         []string  `json:"members"`
+    CreationDate    float64 `json:"creationDate"`
+    FirstAlbum      string  `json:"firstAlbum"`
+    Locations       string  `json:"locations"`
+    ConcertDates    string  `json:"concertDates"`
+    Relation        string  `json:"relation"`
 }
 
-var elemn map[string]interface{}
-var link api
-
-func main() {
-    response, err := http.Get("https://groupietrackers.herokuapp.com/api")
+func GetApi(link string) (api,error) {
+    apiLink := api{}
+    response, err := http.Get(link)
     if err != nil {
-        fmt.Print(err.Error())
-        os.Exit(1)
+        return apiLink,err
     }
 
     responseData, err := ioutil.ReadAll(response.Body)
     if err != nil {
-        log.Fatal(err)
+        return apiLink,err
     }
 
-	err = json.Unmarshal(responseData, &elemn)
+	err = json.Unmarshal(responseData, &apiLink)
 	if err != nil {
-        log.Fatal(err)
+        return apiLink,err
     }
 	
-    link.artists = elemn["artists"].(string)
-	link.locations = elemn["locations"].(string)
-	link.dates = elemn["dates"].(string)
-	link.relation = elemn["relation"].(string)
-    fmt.Println(link)
+    return apiLink,nil
+}
+
+func GetArtist(link string) ([]group,error) {
+    groups := []group{}
+    response, err := http.Get(link)
+    if err != nil {
+        return groups,err
+    }
+
+    responseData, err := ioutil.ReadAll(response.Body)
+    if err != nil {
+        return groups,err
+    }
+
+	err = json.Unmarshal(responseData, &groups)
+	if err != nil {
+        return groups,err
+    }
+	
+    return groups,nil
 }
