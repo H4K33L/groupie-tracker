@@ -17,20 +17,11 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	groups[1].ListConcertDates,_, err = Groupie.GetLinkElem(groups[1].ConcertDates)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	_,groups[1].ListRelation, err = Groupie.GetLinkElem(groups[1].Relation)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	groups[1].ListeLocations,_, err = Groupie.GetLinkElem(groups[1].Locations)
+	groups[1].Information, err = Groupie.GetLinkInfos(groups[1].Relation)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(groups[1])
+	fmt.Println(groups[1].Information.Locations[2], groups[1].Information.Dates[2][0])
 }
