@@ -10,11 +10,15 @@
 <body>
     <nav class="navbar">
         <h1>Groupie Tracker</h1>
-        <div class="input"> 
-            <label for="site-search"></label>
-            <input type="search" id="site-search" name="q"/>
-            <button>Search</button>
-        </div>     
+        <div class="container">
+            <div class="input"> 
+                <form action="/search" method="post">
+                    <label for="site-search"></label>
+                    <input type="search" id="site-search" name="q"/>
+                    <button type="submit">Rechercher</button>
+                </form>
+            </div>
+        </div>   
         <ul>
             <li><a href="./accueil.html">accueil</a></li>
             <li><a href="#">artistes</a></li>

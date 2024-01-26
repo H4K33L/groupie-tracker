@@ -23,7 +23,7 @@ body {
 
 
 /* one de recherche */
-.navbar .input {
+/* .navbar .input {
   display: flex;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 /*champ de recherche */
-.navbar input[type="search"] {
+/* .navbar input[type="search"] {
   display: flex;
   padding: 5px;
   border: none;
@@ -41,10 +41,10 @@ body {
   width: 450px; 
   height: 40px;
   
-}
+} */
 
 /*bouton de recherche */
-.navbar button {
+/* .navbar button {
   background-color: #555;
   color: #fff;
   border: none;
@@ -53,7 +53,73 @@ body {
   width: 130px;
   height: 40px;
   font-size: 16px;
+} */ */
+
+
+
+
+/* Nouveau CSS */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajuste la hauteur à la hauteur de la vue */
 }
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.input label {
+  margin-right: 10px;
+  color: black;
+}
+
+/* Champ de recherche */
+.input input[type="search"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 300px;
+  height: 30px;
+  font-size: 14px;
+}
+
+/* Bouton de recherche */
+.input button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* liste de navigation */
 .navbar ul {
