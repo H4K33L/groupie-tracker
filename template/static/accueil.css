@@ -61,7 +61,12 @@ footer {
   bottom: 0px;
   z-index: 1000;
   color: #fff;
- 
+  position: absolute;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  bottom: 0;
+  width: 100%;
 }
 
 

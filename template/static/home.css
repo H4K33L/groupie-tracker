@@ -97,6 +97,7 @@ div {
 .input {
   display: flex;
   align-items: center;
+  margin: 60px;
 }
 
 .input label {
@@ -130,7 +131,7 @@ div {
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 40px;
   display: flex;
   color: black;
 }
@@ -155,10 +156,10 @@ div {
 
 /* Style pour le pied de page */
 footer {
+  position: absolute;
   color: white;
   text-align: center;
   padding: 1em;
-  position: absolute;
   bottom: 0;
   width: 100%;
 }
@@ -195,11 +196,13 @@ footer {
 
 .item {
   margin: 30px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .item ul {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   list-style: none;
 }
 
@@ -213,39 +216,50 @@ footer {
 }
 
 .item ul li a a:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /*Media query pour tablettes */
  @media screen and (max-width: 768px) {
   body {
-    margin-top: 20px;
+   margin-top: 0px;
   }
   nav {
     display: flex;
   }
   .paste-button {
- 
-  }
-
-.burger-menu {
-
-   
+    font-size: 30px;
+    margin-top: 8px;
   }
   .navbar .paste-button span {
-    display: block;
+      display: block;
   }
   .navbar {
       flex-direction: column;
       align-items: center;
   }
   .navbar h1 {
-
       margin: 20px;
+      left: 50px;
       font-size: 18px;
   }
   .navbar ul {
-    display: none;
+      display: none;
+  }
+  .input input[type="search"] {
+     position: relative;
+     right: 20px;
+     width: 350px;
+     height: 30px;
+     font-size: 1px;
+  }
+  .input button {
+     position: relative;
+     right: 20px;
+     top: 2px;
+     height: 30px;
+     width: 75px;
+     font-size: 10px;
   }
 
 }
@@ -253,43 +267,52 @@ footer {
 
 
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 480px) {
   body {
-    margin-top: 20px;
+    margin-top: -20px;
   }
-  nav {
-    display: flex;
-  }
-  .paste-button {
- 
-  }
-
-.burger-menu {
-
-   
-  }
-  .navbar .paste-button span {
-    /* display: block; */
-  }
-
-  .input {
+   div {
     /* display: flex; */
-    width: 0px;
+  } 
+  .paste-button {
+    font-size: 20px;
+    margin-top: -20px;
   }
-  .id {
-   height: 100px;
-  }
-  .navbar {
-      flex-direction: column;
-      align-items: center;
+  
+.burger-menu {
+  display: flex;
   }
   .navbar h1 {
-
-      margin: 2px;
-      font-size: 10px;
+    position: absolute;
+    font-size: 13px;
+    margin-top: 0px;
+    left: 15px;
   }
   .navbar ul {
     display: none;
   }
-
+  .container {
+    display: flex;
+  }
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input input[type="search"] {
+    left: 42px;
+    top: -10px;
+    width: 145px;
+    height: 30px;
+    font-size: 1px;
+  }
+  .input button {
+    height: 30px;
+    width: 77px;
+    font-size: 10px;
+    top: -7px;
+    left: 40px;
+  
+  }
 }
