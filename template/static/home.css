@@ -7,6 +7,72 @@ body {
   background-size: cover;
 }
 
+
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 100px;
+}
+.paste-button span {
+  display: none;
+}
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  background-color: grey;
+  border: 2px solid black;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+  color: #212121;
+}
+
+.dropdown-content a:focus {
+  background-color: #212121;
+}
+
+.dropdown-content #top:hover {
+  border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+  display: block;
+}
+.burger-menu {
+      display: flex;
+  }
+
+  .burger-menu:hover + .dropdown-menu,
+  .dropdown-menu:hover {
+      display: block;
+  }
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* barre de navigation */
 .navbar {
   display: flex;
@@ -54,6 +120,7 @@ body {
   color: #fff;
   border: none;
   border-radius: 20px;
+  height: 40px;
   cursor: pointer;
   padding: 8px 15px;
   font-size: 16px;
@@ -149,22 +216,80 @@ footer {
   opacity: 1;
 }
 
-/* Media query pour tablettes */
-/* @media screen and (max-width: 768px) {
+/*Media query pour tablettes */
+ @media screen and (max-width: 768px) {
+  body {
+    margin-top: 20px;
+  }
+  nav {
+    display: flex;
+  }
+  .paste-button {
+ 
+  }
+
+.burger-menu {
+
+   
+  }
+  .navbar .paste-button span {
+    display: block;
+  }
   .navbar {
       flex-direction: column;
       align-items: center;
   }
-
   .navbar h1 {
+
       margin: 20px;
-      font-size: 24px;
+      font-size: 18px;
+  }
+  .navbar ul {
+    display: none;
   }
 
-  .navbar .input {
-      margin-top: 20px;
+}
+
+
+
+
+@media screen and (max-width: 390px) {
+  body {
+    margin-top: 20px;
+  }
+  nav {
+    display: flex;
+  }
+  .paste-button {
+ 
   }
 
-  .navbar label {
-      margin
-  } */
+.burger-menu {
+
+   
+  }
+  .navbar .paste-button span {
+    /* display: block; */
+  }
+
+  .input {
+    /* display: flex; */
+    width: 0px;
+  }
+  .id {
+   height: 100px;
+  }
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+  .navbar h1 {
+
+      margin: 2px;
+      font-size: 10px;
+  }
+  .navbar ul {
+    display: none;
+  }
+
+}
