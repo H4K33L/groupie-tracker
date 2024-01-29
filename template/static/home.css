@@ -21,50 +21,11 @@ body {
   font-size: 30px;
 }
 
-
-/* one de recherche */
-/* .navbar .input {
-  display: flex;
-}
-
-.navbar label {
-  margin-right: 10px;
-  color: black;
-}
-
-/*champ de recherche */
-/* .navbar input[type="search"] {
-  display: flex;
-  padding: 5px;
-  border: none;
-  border-radius: 20px;
-  width: 450px; 
-  height: 40px;
-  
-} */
-
-/*bouton de recherche */
-/* .navbar button {
-  background-color: #555;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 130px;
-  height: 40px;
-  font-size: 16px;
-} */ */
-
-
-
-
-/* Nouveau CSS */
-
+/* container du Champ de recherche */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ajuste la hauteur à la hauteur de la vue */
 }
 
 .input {
@@ -82,8 +43,8 @@ body {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 300px;
-  height: 30px;
+  width: 450px;
+  height: 40px;
   font-size: 14px;
 }
 
@@ -97,29 +58,6 @@ body {
   padding: 8px 15px;
   font-size: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* liste de navigation */
 .navbar ul {
