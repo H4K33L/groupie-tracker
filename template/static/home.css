@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/back.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 100px;
+}
+.paste-button span {
+  display: none;
+}
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  background-color: grey;
+  border: 2px solid black;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+  color: #212121;
+}
+
+.dropdown-content a:focus {
+  background-color: #212121;
+}
+
+.dropdown-content #top:hover {
+  border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+  display: block;
+}
+.burger-menu {
+      display: flex;
+  }
+
+  .burger-menu:hover + .dropdown-menu,
+  .dropdown-menu:hover {
+      display: block;
+  }
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+/* titre "Groupie Tackers" */
+.navbar h1 {
+  margin: 50px;
+  font-size: 30px;
+}
+
+/* container du Champ de recherche */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: 60px;
+}
+
+.input label {
+  margin-right: 10px;
+  color: black;
+}
+
+/* Champ de recherche */
+.input input[type="search"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 450px;
+  height: 40px;
+  font-size: 14px;
+}
+
+/* Bouton de recherche */
+.input button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+/* liste de navigation */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  color: black;
+}
+
+/* éléments de navigation */
+.navbar li {
+  margin-right: 30px;
+}
+
+/* liens de la liste de navigation */
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* liens de la liste de navigation */
+.navbar a:hover {
+  color: blue;
+}
+
+/* Style pour le pied de page */
+footer {
+  position: absolute;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  bottom: 0;
+  width: 100%;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  
+}
+.social a {
+
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%; 
+}
+.social a i {
+ font-size: 2em;
+ color: black;
+ opacity: 0,9;
+  
+  
+}
+.social a:hover {
+  color: #ffcc00;
+  transition: 0.5s;
+} 
+
+.social a:hover i {
+  color: #ffcc00;
+  transition: 0.5s;
+} 
+
+.item {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.item ul {
+  /* display: flex;
+  justify-content: center; */
+  list-style: none;
+}
+
+.item ul li a {
+  text-decoration: none; 
+  color: black;
+  margin: 20px;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.item ul li a a:hover {
+    opacity: 1;
+}
+
+/*Media query pour tablettes */
+ @media screen and (max-width: 768px) {
+  body {
+   margin-top: 0px;
+  }
+  nav {
+    display: flex;
+  }
+  .paste-button {
+    font-size: 30px;
+    margin-top: 8px;
+  }
+  .navbar .paste-button span {
+      display: block;
+  }
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+  .navbar h1 {
+      margin: 20px;
+      left: 50px;
+      font-size: 18px;
+  }
+  .navbar ul {
+      display: none;
+  }
+  .input input[type="search"] {
+     position: relative;
+     right: 20px;
+     width: 350px;
+     height: 30px;
+     font-size: 1px;
+  }
+  .input button {
+     position: relative;
+     right: 20px;
+     top: 2px;
+     height: 30px;
+     width: 75px;
+     font-size: 10px;
+  }
+
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+  body {
+    margin-top: -20px;
+  }
+   div {
+    /* display: flex; */
+  } 
+  .paste-button {
+    font-size: 20px;
+    margin-top: -20px;
+  }
+  
+.burger-menu {
+  display: flex;
+  }
+  .navbar h1 {
+    position: absolute;
+    font-size: 13px;
+    margin-top: 0px;
+    left: 15px;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .container {
+    display: flex;
+  }
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input input[type="search"] {
+    left: 42px;
+    top: -10px;
+    width: 145px;
+    height: 30px;
+    font-size: 1px;
+  }
+  .input button {
+    height: 30px;
+    width: 77px;
+    font-size: 10px;
+    top: -7px;
+    left: 40px;
+  
+  }
+}
