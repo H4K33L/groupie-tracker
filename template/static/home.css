@@ -178,9 +178,9 @@ footer {
   border-radius: 50%; 
 }
 .social a i {
- font-size: 2em;
- color: black;
- opacity: 0,9;
+  font-size: 2em;
+   color: black;
+  opacity: 0,9;
   
   
 }
@@ -263,10 +263,7 @@ footer {
   }
 
 }
-
-
-
-
+/*Media query pour smartphone*/
 @media screen and (max-width: 480px) {
   body {
     margin-top: -20px;

@@ -26,7 +26,7 @@ type group struct {
 }
 
 func GetApi(link string) (api,error) {
-    apiLink := api{"https://groupietrackers.herokuapp.com/api"}
+    apiLink := api{}
     response, err := http.Get(link)
     if err != nil {
         return apiLink,err
