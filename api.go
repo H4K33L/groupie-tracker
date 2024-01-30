@@ -5,6 +5,7 @@ import (
     "net/http"
     "encoding/json"
 	"regexp"
+	"errors"
 )
 
 // all the structures used to represent api information
@@ -25,13 +26,20 @@ type group struct {
     Information         information
 }
 type information struct {
-    Locations       []string            `json:"locations"`
-    Dates           [][]string          `json:"dates"`
+    Locations       []string
+    Dates           [][]string
 }
 type temp struct {
     DatesLocation   map[string][]string  `json:"datesLocations"`
 }
 
+var (
+    GetApiError = errors.New("There is an error during the API calling, OH SNAP !")
+    ConvertToStringError = errors.New("There is an error during the convertion to string, SOOOOOOOOOOOOOOOOOO BAD !")
+	UnmarshalError = errors.New("The json probably doesnt match with the struct.....TRY AGAIN !")
+    RegexpError = errors.New("An error append in the Regexp rule, IT WORK ON MY PC !")
+    RegexpNoMatch = errors.New("Sorry but this isnt an URL, TOU CAN DO IT BETTER !")
+)
 
 func GetApi(link string) (api,error) {
     /*
@@ -45,23 +53,30 @@ func GetApi(link string) (api,error) {
     The function return also all possible error case posibly
     generated during the execution.
     */
-    apiLink := api{}
-    response, err := http.Get(link)
+    matched, err := regexp.MatchString(`https:\/\/.*`, link)
     if err != nil {
-        return apiLink,err
-    }
+        return api{}, RegexpError
+    } else if matched {
+        apiLink := api{}
+        response, err := http.Get(link)
+        if err != nil {
+            return apiLink, GetApiError
+        }
 
-    responseData, err := ioutil.ReadAll(response.Body)
-    if err != nil {
-        return apiLink,err
-    }
+        responseData, err := ioutil.ReadAll(response.Body)
+        if err != nil {
+            return apiLink, ConvertToStringError
+        }
 
-	err = json.Unmarshal(responseData, &apiLink)
-	if err != nil {
-        return apiLink,err
-    }
+	    err = json.Unmarshal(responseData, &apiLink)
+	    if err != nil {
+            return apiLink, UnmarshalError
+        }
 	
-    return apiLink,nil
+        return apiLink,nil
+    } else {
+        return api{}, RegexpNoMatch
+    }
 }
 
 func GetArtist(link string) ([]group,error) {
@@ -76,23 +91,30 @@ func GetArtist(link string) ([]group,error) {
     The function also return error case posibly generated
     during the proces.
     */
-    groups := []group{}
-    response, err := http.Get(link)
+    matched, err := regexp.MatchString(`https:\/\/.*`, link)
     if err != nil {
-        return groups,err
-    }
+        return []group{}, RegexpError
+    } else if matched {
+        groups := []group{}
+        response, err := http.Get(link)
+        if err != nil {
+            return groups, GetApiError
+        }
 
-    responseData, err := ioutil.ReadAll(response.Body)
-    if err != nil {
-        return groups,err
-    }
+        responseData, err := ioutil.ReadAll(response.Body)
+        if err != nil {
+            return groups, ConvertToStringError
+        }
 
-	err = json.Unmarshal(responseData, &groups)
-	if err != nil {
-        return groups,err
-    }
+	    err = json.Unmarshal(responseData, &groups)
+	    if err != nil {
+            return groups, UnmarshalError
+        }
 	
-    return groups,nil
+        return groups,nil
+    } else {
+        return []group{}, RegexpNoMatch
+    }
 }
 
 func GetLinkInfos(link string) (information, error) {
@@ -108,24 +130,24 @@ func GetLinkInfos(link string) (information, error) {
     */
     matched, err := regexp.MatchString(`https:\/\/.*`, link)
     if err != nil {
-        return information{}, err
+        return information{}, RegexpError
     } else if matched {
         elements := information{}
         infos := temp{}
 
         response, err := http.Get(link)
         if err != nil {
-            return information{}, err
+            return information{}, GetApiError
         }
 
         responseData, err := ioutil.ReadAll(response.Body)
         if err != nil {
-            return information{}, err
+            return information{}, ConvertToStringError
         }
 
         err = json.Unmarshal(responseData, &infos)
         if err != nil {
-            return information{}, err
+            return information{}, UnmarshalError
         } 
         
         for clef := range infos.DatesLocation {
@@ -136,6 +158,28 @@ func GetLinkInfos(link string) (information, error) {
         return elements, nil
 
     } else {
-        return information{}, err
+        return information{}, RegexpNoMatch
     }
+}
+
+
+func Begin(link string) ([]group,error) {
+    /*
+    The Begin function initillize the group list
+    ---------------------------------------------
+    input : the link to the first api.
+    output : the list of group
+    ---------------------------------------------
+    The function also return the posible error
+    produce by the program.
+    */
+	information, err := GetApi(link)
+	if err != nil {
+		return []group{}, err
+	}
+	groups, err := GetArtist(information.Artists)
+	if err != nil {
+		return []group{}, err
+	}
+	return groups, nil
 }
