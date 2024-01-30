@@ -1,13 +1,12 @@
 package handler
 
 import (
-	"html/template"
 	"net/http"
 )
 
-var home = template.Must(template.ParseFiles("templates/home.html"))
+func FacebookHandler(w http.ResponseWriter, r *http.Request) {
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://www.facebook.com/", http.StatusFound)
 
 	err := home.Execute(w, nil)
 	if err != nil {

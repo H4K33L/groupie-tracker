@@ -7,13 +7,12 @@ import (
 )
 
 func main() {
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/", handler.HomeHandler)
 	http.HandleFunc("/artist", handler.ArtistHandler)
-	http.HandleFunc("/contact", handler.ContactHandler)
-
-	port := 8080
-
-	fmt.Printf("Serveur écoutant sur le port %d...\n", port)
-	http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	http.HandleFunc("/artistsearch", handler.ResearchHandler)
+	http.HandleFunc("/facebook", handler.FacebookHandler)
+	fmt.Println("server successfully up, go to http://127.0.0.1:5500")
+	http.ListenAndServe("127.0.0.1:5500", nil)
 }
