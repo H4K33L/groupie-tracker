@@ -1,14 +1,7 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-image: url('../images/back.svg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+margin: 0;
+padding: 0;
 }
-
-
-
 .burger-menu {
   display: none;
   flex-direction: column;
@@ -78,7 +71,7 @@ div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
+  margin-top: -50px;
 }
 
 /* titre "Groupie Tackers" */
@@ -108,6 +101,7 @@ div {
 /* Champ de recherche */
 .input input[type="search"] {
   padding: 8px;
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 20px;
   width: 450px;
@@ -154,9 +148,69 @@ div {
   color: blue;
 }
 
+hr {
+  margin-top: -50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.artists-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.artist {
+  text-align: center;
+}
+
+.artist img {
+  
+  background-color: #555;
+  border-radius: 40px;  
+  border: 2px solid #000; 
+  animation: rotateAnimation 5s linear infinite;
+  padding: 5px; 
+  display: block; 
+  margin: auto; 
+}
+/* animation pour la rotation de l'image */
+@keyframes rotateImage {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Style de base pour l'image */
+img {
+  transition: transform 0.3s ease; 
+}
+
+/* Appliquer l'animation lors du survol */
+img:hover {
+  animation: rotateImage 1s linear forwards; 
+  transform: rotate(360deg); 
+}
+
+/* Arrêter l'animation après la première exécution */
+img:hover::after {
+  content: ""; 
+  display: block;
+  animation: none !important;
+  animation-play-state: paused;
+}
+
+
 /* Style pour le pied de page */
-footer {
-  position: absolute;
+
+ footer {
+  
+  background-color: #331f1f;
   color: white;
   text-align: center;
   padding: 1em;
@@ -182,13 +236,11 @@ footer {
    color: black;
   opacity: 0,9;
   
-  
 }
 .social a:hover {
   color: #ffcc00;
   transition: 0.5s;
 } 
-
 .social a:hover i {
   color: #ffcc00;
   transition: 0.5s;
@@ -201,8 +253,8 @@ footer {
 }
 
 .item ul {
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   list-style: none;
 }
 
@@ -217,7 +269,7 @@ footer {
 
 .item ul li a a:hover {
     opacity: 1;
-}
+} 
 
 /*Media query pour tablettes */
  @media screen and (max-width: 768px) {
@@ -260,6 +312,11 @@ footer {
      height: 30px;
      width: 75px;
      font-size: 10px;
+  }
+  .artists-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
 }
@@ -311,5 +368,10 @@ footer {
     top: -7px;
     left: 40px;
   
+  }
+  .artists-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
   }
 }

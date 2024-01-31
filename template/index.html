@@ -14,10 +14,10 @@
             <section class="paste-button">
                 <span class="mdi mdi-menu burger-menu"></span>
                 <section class="dropdown-content">
-                    <a href="./accueil.html">accueil</a>
+                    <a href="/accueil.html">accueil</a>
                     <a href="artistes.html">artistes</a>
                     <a href="#">dates</a>
-                    <a href="./map.html">villes</a>
+                    <a href="/map.html">villes</a>
                 </section>
             </section>
             <h1>Groupie Tracker</h1>
@@ -38,16 +38,19 @@
             <li><a href="./map.html">villes</a></li>
         </ul>
     </header>
+    <hr>
 <h1>Artist Information</h1>
+<div class="artists-container">
     {{ range . }}
-    <article class="artist">
-        <img src="{{ .Img }}" alt="{{ .Name }}">
-        <h3>{{ .Name }}</h3>
-        <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
-        <p>Creation Date: {{ .CreationDate }}</p>
-        <p>First Album: {{ .FirstAlbum }}</p>        
-    </article>
+      <article class="artist">
+          <img src="{{ .Img }}" alt="{{ .Name }}">
+          <h3>{{ .Name }}</h3>
+          <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
+          <p>Creation Date: {{ .CreationDate }}</p>
+          <p>First Album: {{ .FirstAlbum }}</p>        
+      </article>
     {{ end }}
+  </div>
     <footer>     
             <div class="social">
                 <a href="https://www.facebook.com/votre-page-facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
