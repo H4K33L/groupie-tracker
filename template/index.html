@@ -43,11 +43,11 @@
 <h1>Artist Information</h1>
     {{ range . }}
     <article class="artist">
-        <img src="{{ .Img }}" alt="{{ .Name }}">
-        <h3>{{ .Name }}</h3>
+        <img src="{{.Img}}" alt="{{.Name}}">
+        <h3>{{.Name}}</h3>
         <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
-        <p>Creation Date: {{ .CreationDate }}</p>
-        <p>First Album: {{ .FirstAlbum }}</p>        
+        <p>Creation Date: {{.CreationDate}}</p>
+        <p>First Album: {{.FirstAlbum}}</p>        
     </article>
     {{ end }}
 <footer>     
