@@ -10,10 +10,10 @@ import (
 
 // all the structures used to represent api information
 type api struct {
-	Artists 	string `json:"artists"`
-	Locations 	string `json:"locations"`
-	Dates 		string `json:"dates"`
-	Relation 	string `json:"relation"`
+	Artists   string `json:"artists"`
+	Locations string `json:"locations"`
+	Dates     string `json:"dates"`
+	Relation  string `json:"relation"`
 }
 type group struct {
     ID                  float64         `json:"id"`
