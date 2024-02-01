@@ -45,9 +45,6 @@
       <article class="artist">
           <img src="{{ .Img }}" alt="{{ .Name }}">
           <h3>{{ .Name }}</h3>
-          <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
-          <p>Creation Date: {{ .CreationDate }}</p>
-          <p>First Album: {{ .FirstAlbum }}</p>        
       </article>
     {{ end }}
   </div>
@@ -64,7 +61,7 @@
                         <ul>
                             <li><a href="#">Web design</a></li>
                             <li><a href="">Team</a></li>
-                            <li><a href="">About</a><p>najm</p></li>
+                            <li><a href="">About</a><p></p></li>
                         </ul>
                   </div>   
             </details>

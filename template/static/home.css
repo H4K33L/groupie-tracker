@@ -167,7 +167,6 @@ h1 {
 }
 
 .artist img {
-  
   background-color: #555;
   border-radius: 40px;  
   border: 2px solid #000; 
@@ -176,6 +175,7 @@ h1 {
   display: block; 
   margin: auto; 
 }
+
 /* animation pour la rotation de l'image */
 @keyframes rotateImage {
   from {
@@ -205,13 +205,12 @@ img:hover::after {
   animation-play-state: paused;
 }
 
-
 /* Style pour le pied de page */
 
  footer {
   
-  background-color: #331f1f;
-  color: white;
+  background-color: gray;
+  /* color: white; */
   text-align: center;
   padding: 1em;
   bottom: 0;
@@ -223,6 +222,7 @@ img:hover::after {
   justify-content: center;
   
 }
+
 .social a {
 
   text-decoration: none;
@@ -231,16 +231,18 @@ img:hover::after {
   margin: 10px;
   border-radius: 50%; 
 }
+
 .social a i {
   font-size: 2em;
    color: black;
   opacity: 0,9;
-  
 }
+
 .social a:hover {
   color: #ffcc00;
   transition: 0.5s;
 } 
+
 .social a:hover i {
   color: #ffcc00;
   transition: 0.5s;
@@ -276,28 +278,35 @@ img:hover::after {
   body {
    margin-top: 0px;
   }
+
   nav {
     display: flex;
   }
+
   .paste-button {
     font-size: 30px;
     margin-top: 8px;
   }
+
   .navbar .paste-button span {
       display: block;
   }
+
   .navbar {
       flex-direction: column;
       align-items: center;
   }
+
   .navbar h1 {
       margin: 20px;
       left: 50px;
       font-size: 18px;
   }
+
   .navbar ul {
       display: none;
   }
+
   .input input[type="search"] {
      position: relative;
      right: 20px;
@@ -305,6 +314,7 @@ img:hover::after {
      height: 30px;
      font-size: 1px;
   }
+
   .input button {
      position: relative;
      right: 20px;
@@ -313,6 +323,7 @@ img:hover::after {
      width: 75px;
      font-size: 10px;
   }
+
   .artists-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -322,12 +333,11 @@ img:hover::after {
 }
 /*Media query pour smartphone*/
 @media screen and (max-width: 480px) {
+
   body {
     margin-top: -20px;
   }
-   div {
-    /* display: flex; */
-  } 
+
   .paste-button {
     font-size: 20px;
     margin-top: -20px;
@@ -336,18 +346,22 @@ img:hover::after {
 .burger-menu {
   display: flex;
   }
+
   .navbar h1 {
     position: absolute;
     font-size: 13px;
     margin-top: 0px;
     left: 15px;
   }
+
   .navbar ul {
     display: none;
   }
+
   .container {
     display: flex;
   }
+
   .input {
     display: flex;
     align-items: center;
@@ -361,6 +375,7 @@ img:hover::after {
     height: 30px;
     font-size: 1px;
   }
+
   .input button {
     height: 30px;
     width: 77px;
@@ -369,6 +384,7 @@ img:hover::after {
     left: 40px;
   
   }
+
   .artists-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
