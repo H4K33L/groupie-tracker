@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_bis</title>
+   
+</head>
+
+<body>
+    {{range .}}
+    <a href="/switchbis" name = "ID"><img src={{.Img}}></a>
+    <h1>{{.Name}}</h1>
+    <h4>{{.CreationDate}}</h4>
+    <h4>{{.FirstAlbum}}</h4>
+    {{range .Members}}
+        <li>{{.}}</li>
+    {{end}}
+    {{end}}
+</body>
+</html>
