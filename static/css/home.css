@@ -7,7 +7,17 @@ body {
   background-size: cover;
 }
 
+.art{
+  display: grid;
+  place-self: center;
+}
 
+.artist{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+}
 
 .burger-menu {
   display: none;
@@ -73,7 +83,7 @@ div {
   justify-content: space-between;
 }
 
-/* barre de navigation */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -81,13 +91,11 @@ div {
   margin: 0;
 }
 
-/* titre "Groupie Tackers" */
 .navbar h1 {
   margin: 50px;
   font-size: 30px;
 }
 
-/* container du Champ de recherche */
 .container {
   display: flex;
   justify-content: center;
@@ -105,7 +113,6 @@ div {
   color: black;
 }
 
-/* Champ de recherche */
 .input input[type="search"] {
   padding: 8px;
   border: 1px solid #ccc;
@@ -115,7 +122,6 @@ div {
   font-size: 14px;
 }
 
-/* Bouton de recherche */
 .input button {
   background-color: #555;
   color: #fff;
@@ -136,12 +142,10 @@ div {
   color: black;
 }
 
-/* éléments de navigation */
 .navbar li {
   margin-right: 30px;
 }
 
-/* liens de la liste de navigation */
 .navbar a {
   text-decoration: none;
   color: black;
@@ -149,12 +153,10 @@ div {
   font-size: 20px;
 }
 
-/* liens de la liste de navigation */
 .navbar a:hover {
   color: blue;
 }
 
-/* Style pour le pied de page */
 footer {
   position: absolute;
   color: white;
@@ -271,9 +273,7 @@ footer {
   body {
     margin-top: -20px;
   }
-   div {
-    /* display: flex; */
-  } 
+  
   .paste-button {
     font-size: 20px;
     margin-top: -20px;
