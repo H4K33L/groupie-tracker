@@ -27,7 +27,6 @@ func main() {
 	fmt.Printf("entrez l'ID : ")
 
 	_, err = fmt.Scan(&level)
-
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -42,6 +41,10 @@ func main() {
 
 	fmt.Print("Entrez une partie ou le nom complet du groupe: ")
 	_, err = fmt.Scan(&name)
+
+	if name == "\n" {
+		fmt.Println(group)
+	}
 
 	if err != nil {
 		fmt.Println(err)
