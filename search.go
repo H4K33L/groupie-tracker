@@ -5,14 +5,14 @@ import (
 	"strings"
 )
 
-func GetGroupByID(groups []group, id int) (group, error) {
+func GetGroupByID(groups []group, id int) ([]group, error) {
 	for _, g := range groups {
 		if int(g.ID) == id {
-			return g, nil
+			return []group{g}, nil
 		}
 	}
 
-	return group{}, fmt.Errorf("groupe avec l'ID %v non trouvé", id)
+	return []group{}, fmt.Errorf("groupe avec l'ID %v non trouvé", id)
 }
 
 func GetGroupsByName(groups []group, partial string) []group {

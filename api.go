@@ -26,10 +26,6 @@ type group struct {
     Information         information
 }
 type information struct {
-    Locations       []string
-    Dates           [][]string
-}
-type temp struct {
     DatesLocation   map[string][]string  `json:"datesLocations"`
 }
 
@@ -133,7 +129,6 @@ func GetLinkInfos(link string) (information, error) {
         return information{}, RegexpError
     } else if matched {
         elements := information{}
-        infos := temp{}
 
         response, err := http.Get(link)
         if err != nil {
@@ -145,15 +140,10 @@ func GetLinkInfos(link string) (information, error) {
             return information{}, ConvertToStringError
         }
 
-        err = json.Unmarshal(responseData, &infos)
+        err = json.Unmarshal(responseData, &elements)
         if err != nil {
             return information{}, UnmarshalError
         } 
-        
-        for clef := range infos.DatesLocation {
-            elements.Locations = append(elements.Locations, clef)
-            elements.Dates = append(elements.Dates, infos.DatesLocation[clef])
-        }
 
         return elements, nil
 
@@ -182,4 +172,39 @@ func Begin(link string) ([]group,error) {
 		return []group{}, err
 	}
 	return groups, nil
+}
+
+func LoadArtist(link, letter string) (group, error) {
+    /*
+    The Load Artist func is used to get information about one group whith is ID.
+    -----------------------------------------------------------------------------
+    input : the api link and the id of the group
+    output : the group struct who contain the group information
+    -----------------------------------------------------------------------------
+    Also the function return the posible error apening during the execution.
+    */
+    information := api{}
+    artist := group{}
+
+    information, err := GetApi(link)
+	if err != nil {
+		return group{}, err
+	}
+
+    response, err := http.Get(information.Artists+"/"+letter)
+    if err != nil {
+        return group{}, GetApiError
+    }
+
+    responseData, err := ioutil.ReadAll(response.Body)
+    if err != nil {
+        return group{}, ConvertToStringError
+    }
+
+    err = json.Unmarshal(responseData, &artist)
+    if err != nil {
+        return group{}, UnmarshalError
+    } 
+
+    return artist, nil
 }
