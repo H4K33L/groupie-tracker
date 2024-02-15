@@ -1,16 +1,31 @@
 body {
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #4d43bb;   
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
 .burger-menu {
   display: none;
   flex-direction: column;
   cursor: pointer;
   z-index: 100px;
 }
+
 .paste-button span {
   display: none;
 }
+
 .dropdown-content {
   display: none;
   font-size: 13px;
@@ -66,21 +81,12 @@ div {
   justify-content: space-between;
 }
 
-/* barre de navigation */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: -50px;
-}
 
-/* titre "Groupie Tackers" */
 .navbar h1 {
   margin: 50px;
   font-size: 30px;
 }
 
-/* container du Champ de recherche */
 .container {
   display: flex;
   justify-content: center;
@@ -109,9 +115,8 @@ div {
   font-size: 14px;
 }
 
-/* Bouton de recherche */
 .input button {
-  background-color: #555;
+  /* background-color: #555; */
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -119,9 +124,10 @@ div {
   cursor: pointer;
   padding: 8px 15px;
   font-size: 16px;
+  color: black;
+  font-weight: bold;
 }
 
-/* liste de navigation */
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -130,12 +136,10 @@ div {
   color: black;
 }
 
-/* éléments de navigation */
 .navbar li {
   margin-right: 30px;
 }
 
-/* liens de la liste de navigation */
 .navbar a {
   text-decoration: none;
   color: black;
@@ -143,7 +147,6 @@ div {
   font-size: 20px;
 }
 
-/* liens de la liste de navigation */
 .navbar a:hover {
   color: blue;
 }
@@ -160,20 +163,33 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  flex: 1;
 }
 
 .artist {
   text-align: center;
 }
+.artists-container button { 
+  background-color: #4d43bb;
+
+}
 
 .artist img {
-  background-color: #555;
-  border-radius: 40px;  
-  border: 2px solid #000; 
+  border-radius: 40px;   
+  border: 6px solid gray; 
   animation: rotateAnimation 5s linear infinite;
   padding: 5px; 
-  display: block; 
   margin: auto; 
+  cursor: grab;
+}
+
+select {
+  display: none;
+}
+
+button {
+  background-color: white;
+  border: none;
 }
 
 /* animation pour la rotation de l'image */
@@ -186,7 +202,6 @@ h1 {
   }
 }
 
-/* Style de base pour l'image */
 img {
   transition: transform 0.3s ease; 
 }
@@ -208,11 +223,11 @@ img:hover::after {
 /* Style pour le pied de page */
 
  footer {
-  
+  padding: 10px 0px;
   background-color: gray;
-  /* color: white; */
+ 
   text-align: center;
-  padding: 1em;
+  
   bottom: 0;
   width: 100%;
 }
@@ -295,6 +310,7 @@ img:hover::after {
   .navbar {
       flex-direction: column;
       align-items: center;
+     
   }
 
   .navbar h1 {
@@ -309,8 +325,8 @@ img:hover::after {
 
   .input input[type="search"] {
      position: relative;
-     right: 20px;
-     width: 350px;
+     right: 30px;
+     width: 330px;
      height: 30px;
      font-size: 1px;
   }
@@ -318,9 +334,9 @@ img:hover::after {
   .input button {
      position: relative;
      right: 20px;
-     top: 2px;
+     top: 5px;
      height: 30px;
-     width: 75px;
+     width: 85px;
      font-size: 10px;
   }
 
@@ -331,16 +347,22 @@ img:hover::after {
   }
 
 }
+
 /*Media query pour smartphone*/
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 400px) {
 
   body {
-    margin-top: -20px;
+    margin-top: -30px;
+   
+  }
+  .navbar {
+    margin-top: 15px;
   }
 
   .paste-button {
-    font-size: 20px;
-    margin-top: -20px;
+    font-size: 30px;
+    margin-top: -50px;
+    padding: 7px;
   }
   
 .burger-menu {
@@ -349,9 +371,9 @@ img:hover::after {
 
   .navbar h1 {
     position: absolute;
-    font-size: 13px;
-    margin-top: 0px;
-    left: 15px;
+    font-size: 15px;
+    margin-top: -87px;
+    left: 110px;
   }
 
   .navbar ul {
@@ -363,25 +385,26 @@ img:hover::after {
   }
 
   .input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
+  
+   
   }
   
   .input input[type="search"] {
-    left: 42px;
+    right: 22px;
     top: -10px;
-    width: 145px;
+    width: 190px;
     height: 30px;
-    font-size: 1px;
+    right: 40px;
+  
   }
 
   .input button {
     height: 30px;
     width: 77px;
     font-size: 10px;
-    top: -7px;
-    left: 40px;
+    top: -39px;
+    left: 170px;
   
   }
 
@@ -389,5 +412,8 @@ img:hover::after {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 25px;
+  }
+  footer {
+    position: relative;
   }
 }

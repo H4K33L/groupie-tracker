@@ -4,7 +4,6 @@ body{
     background-image: url('./images/audience.jpg');   
 }
 
-
 header {
   display: flex;
   justify-content: center;
@@ -69,7 +68,6 @@ footer {
   width: 100%;
 }
 
-
 .items {
   display: flex;
   justify-content: center;
@@ -83,11 +81,13 @@ footer {
   margin: 10px;
   border-radius: 50%; 
 }
+
 .items a i {
  font-size: 2em;
  color: black;
  opacity: 0,9;  
 }
+
 .items a:hover {
   color: #ffcc00;
   transition: 0.5s;
@@ -97,9 +97,11 @@ footer {
   color: #ffcc00;
   transition: 0.5s;
 } 
+
 .item {
   margin: 30px 0;
 }
+
 .item ul {
   display: flex;
   justify-content: center;
@@ -132,6 +134,7 @@ footer {
      justify-content: center; 
      padding: 15px; 
   }
+  
   header ul {
     display: flex;
     justify-content: center;

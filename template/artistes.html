@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/static/artistes.css">
 </head>
 <body>
+     <header class="navbar">
+            <h2>Groupie Tracker</h2>
+        <ul>
+            <li><a href="/Index">home</a></li>
+            <li><a href="/Accueil">accueil</a></li>
+            <!-- <li><a href="/Map">villes</a></li> -->
+        </ul>
+    </header> 
     <h1>Artist Information</h1>
     <div class="artist">
         <img src="{{ .Img }}" alt="{{ .Name }}">
@@ -16,8 +24,9 @@
         <p>First Album: {{ .FirstAlbum }}</p>
         <p>Dates : </p>
         {{ range $key, $value := .Information.DatesLocation}}
-            <li> {{$key}}
+            <li> 
             {{range $value}}
+            <a class="key" target="_blank" href="https://www.google.fr/maps/place/{{$key}}">{{$key}}</a>
                 <li>{{.}}</li>
             {{end}}
             </li>

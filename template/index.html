@@ -14,8 +14,9 @@
             <section class="paste-button">
                 <span class="mdi mdi-menu burger-menu"></span>
                 <section class="dropdown-content">
-                    <a href="/accueil">accueil</a>
-                    <a href="#">villes</a>
+                    <a href="/Artistes">artistes</a>
+                    <a href="/Accueil">accueil</a>
+                    <a href="/Map">villes</a>
                 </section>
             </section>
             <h1>Groupie Tracker</h1>
@@ -30,8 +31,8 @@
             </div>  
         </div>
         <ul>
-            <li><a href="/accueil">accueil</a></li>
-            <li><a href="#">villes</a></li>
+            <li><a href="/Accueil">accueil</a></li>
+            <li><a href="/Map">villes</a></li>
         </ul>
     </header>
     <hr>
@@ -39,10 +40,6 @@
 <div class="artists-container">
     {{ range . }}
       <article class="artist">
-<<<<<<< HEAD
-          <img src="{{ .Img }}" alt="{{ .Name }}">
-          <h3>{{ .Name }}</h3>
-=======
         <form action="/switch" method="post">
             <select name="name">
                 <option value="{{.ID}}"></option>
@@ -50,7 +47,6 @@
             <button><img src="{{ .Img }}" alt="{{ .Name }}"></button>
         </form>
         <h3>{{ .Name }}</h3>     
->>>>>>> dev
       </article>
     {{ end }}
   </div>
