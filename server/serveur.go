@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-    "html/template"
-    "net/http"
+	"html/template"
+	"net/http"
 
 	"Groupie"
 )
@@ -18,19 +18,20 @@ func main() {
 		return
 	}
 
-    fmt.Println("server succefully up, go to http://localhost:8080")
-    
-    fs := http.FileServer(http.Dir("template/static"))
+	fmt.Println("server succefully up, go to http://localhost:5000")
+
+	fs := http.FileServer(http.Dir("template/static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
-	
-	http.HandleFunc("/",Send)
 
-    http.HandleFunc("/Index",Index)
-    http.HandleFunc("/accueil",Accueil)
-    http.HandleFunc("/switch",Switch)
-	http.HandleFunc("/search",Search)
+	http.HandleFunc("/", Send)
 
-    http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/Index", Index)
+	http.HandleFunc("/Accueil", Accueil)
+	http.HandleFunc("/Map", Map)
+	http.HandleFunc("/switch", Switch)
+	http.HandleFunc("/search", Search)
+
+	http.ListenAndServe(":5000", nil)
 }
 
 func Send(w http.ResponseWriter, r *http.Request) {
@@ -49,12 +50,17 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 func Accueil(w http.ResponseWriter, r *http.Request) {
 	tmpl = template.Must(template.ParseFiles("template/accueil.html"))
+	tmpl.Execute(w, liste)
+}
+func Map(w http.ResponseWriter, r *http.Request) {
+	tmpl = template.Must(template.ParseFiles("template/map.html"))
+	tmpl.Execute(w, liste)
 }
 
 func Switch(w http.ResponseWriter, r *http.Request) {
 	tmpl = template.Must(template.ParseFiles("template/artistes.html"))
-    letter := string(r.FormValue("name"))
-	artist, err := Groupie.LoadArtist("https://groupietrackers.herokuapp.com/api",letter)
+	letter := string(r.FormValue("name"))
+	artist, err := Groupie.LoadArtist("https://groupietrackers.herokuapp.com/api", letter)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -69,6 +75,6 @@ func Switch(w http.ResponseWriter, r *http.Request) {
 
 func Search(w http.ResponseWriter, r *http.Request) {
 	letter := string(r.FormValue("q"))
-	liste = Groupie.GetGroupsByName(liste,letter)
+	liste = Groupie.GetGroupsByName(liste, letter)
 	tmpl.Execute(w, liste)
 }
