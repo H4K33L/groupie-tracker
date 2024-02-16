@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"html/template"
-	"net/http"
+    "html/template"
+    "net/http"
 
 	"Groupie"
 )
@@ -18,20 +18,19 @@ func main() {
 		return
 	}
 
-	fmt.Println("server succefully up, go to http://localhost:5000")
-
-	fs := http.FileServer(http.Dir("template/static"))
+    fmt.Println("server succefully up, go to http://localhost:8080")
+    
+    fs := http.FileServer(http.Dir("template/static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	http.HandleFunc("/", Send)
 
-	http.HandleFunc("/Index", Index)
-	http.HandleFunc("/Accueil", Accueil)
-	http.HandleFunc("/Map", Map)
-	http.HandleFunc("/switch", Switch)
-	http.HandleFunc("/search", Search)
+    http.HandleFunc("/Index",Index)
+    http.HandleFunc("/accueil",Accueil)
+    http.HandleFunc("/switch",Switch)
+	http.HandleFunc("/search",Search)
 
-	http.ListenAndServe(":5000", nil)
+    http.ListenAndServe(":8080", nil)
 }
 
 func Send(w http.ResponseWriter, r *http.Request) {
