@@ -232,6 +232,7 @@ img:hover::after {
 
 .up .back-to-top {
   font-size: 30px;
+  color: black;
   background-color: #92bbe8;
   border-radius: 15px;
   width: 60px;

@@ -31,7 +31,7 @@ func main() {
 	http.HandleFunc("/", Send)
 	http.HandleFunc("/Index", Index)
 	http.HandleFunc("/Accueil", Accueil)
-	http.HandleFunc("/Map", Map)
+	
 	http.HandleFunc("/switch", Switch)
 	http.HandleFunc("/search", Search)
 
