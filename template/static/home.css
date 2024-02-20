@@ -6,15 +6,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
+/* section menu burger */
 .burger-menu {
   display: none;
   flex-direction: column;
@@ -44,7 +45,7 @@ body {
 }
 
 .dropdown-content a:hover {
-  color: #212121;
+  color: white;
 }
 
 .dropdown-content a:focus {
@@ -66,13 +67,14 @@ body {
 .paste-button:hover .dropdown-content {
   display: block;
 }
+
 .burger-menu {
       display: flex;
-  }
+}
 
   .burger-menu:hover + .dropdown-menu,
   .dropdown-menu:hover {
-      display: block;
+    display: block;
   }
 
 div {
@@ -80,7 +82,6 @@ div {
   align-items: center;
   justify-content: space-between;
 }
-
 
 .navbar h1 {
   margin: 50px;
@@ -96,7 +97,8 @@ div {
 .input {
   display: flex;
   align-items: center;
-  margin: 60px;
+  /* margin: 60px; */
+  margin-left: 150px;
 }
 
 .input label {
@@ -104,7 +106,7 @@ div {
   color: black;
 }
 
-/* Champ de recherche */
+/* Search field */
 .input input[type="search"] {
   padding: 8px;
   align-items: center;
@@ -116,7 +118,6 @@ div {
 }
 
 .input button {
-  /* background-color: #555; */
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -169,9 +170,10 @@ h1 {
 .artist {
   text-align: center;
 }
-.artists-container button { 
-  background-color: #4d43bb;
 
+.artists-container button { 
+  background-color: #f2f1f8;
+  border-radius: 40px;
 }
 
 .artist img {
@@ -192,11 +194,12 @@ button {
   border: none;
 }
 
-/* animation pour la rotation de l'image */
+/* animation for image rotation */
 @keyframes rotateImage {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -206,13 +209,13 @@ img {
   transition: transform 0.3s ease; 
 }
 
-/* Appliquer l'animation lors du survol */
+/* Apply animation on hover */
 img:hover {
   animation: rotateImage 1s linear forwards; 
   transform: rotate(360deg); 
 }
 
-/* Arrêter l'animation après la première exécution */
+/* Stop animation after first execution */
 img:hover::after {
   content: ""; 
   display: block;
@@ -220,26 +223,41 @@ img:hover::after {
   animation-play-state: paused;
 }
 
-/* Style pour le pied de page */
+.up {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 15px;
+}
+
+.up .back-to-top {
+  font-size: 30px;
+  background-color: #92bbe8;
+  border-radius: 15px;
+  width: 60px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: white;
+}
+
+
+/* Style for footer */
 
  footer {
-  padding: 10px 0px;
-  background-color: gray;
- 
+  background-color: ;
   text-align: center;
-  
-  bottom: 0;
   width: 100%;
 }
 
 .social {
   display: flex;
-  justify-content: center;
-  
+  justify-content: center; 
 }
 
 .social a {
-
   text-decoration: none;
   padding: 10px;
   background-color: white;
@@ -262,6 +280,10 @@ img:hover::after {
   color: #ffcc00;
   transition: 0.5s;
 } 
+
+summary {
+  cursor: pointer;
+}
 
 .item {
   margin: 30px 0;
@@ -288,7 +310,7 @@ img:hover::after {
     opacity: 1;
 } 
 
-/*Media query pour tablettes */
+/*Media query for tablets */
  @media screen and (max-width: 768px) {
   body {
    margin-top: 0px;
@@ -325,19 +347,22 @@ img:hover::after {
 
   .input input[type="search"] {
      position: relative;
-     right: 30px;
-     width: 330px;
+     right: 110px;
+     width: 300px;
      height: 30px;
      font-size: 1px;
   }
 
   .input button {
      position: relative;
-     right: 20px;
+     right: 110px;
      top: 5px;
      height: 30px;
      width: 85px;
      font-size: 10px;
+  }
+  h1 {
+    margin-top: 60px;
   }
 
   .artists-container {
@@ -345,10 +370,13 @@ img:hover::after {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+  summary {
+    cursor: pointer;
+  }
 
 }
 
-/*Media query pour smartphone*/
+/*Media query for smartphone*/
 @media screen and (max-width: 400px) {
 
   body {
@@ -356,7 +384,7 @@ img:hover::after {
    
   }
   .navbar {
-    margin-top: 15px;
+    margin-top: 80px;
   }
 
   .paste-button {
@@ -383,15 +411,9 @@ img:hover::after {
   .container {
     display: flex;
   }
-
-  .input {
-  
-  
-   
-  }
-  
+ 
   .input input[type="search"] {
-    right: 22px;
+    left: -120px;
     top: -10px;
     width: 190px;
     height: 30px;
@@ -404,8 +426,7 @@ img:hover::after {
     width: 77px;
     font-size: 10px;
     top: -39px;
-    left: 170px;
-  
+    left: 95px;
   }
 
   .artists-container {
@@ -413,7 +434,12 @@ img:hover::after {
     grid-template-columns: repeat(1, 1fr);
     gap: 25px;
   }
+
   footer {
     position: relative;
   }
+  summary {
+    cursor: pointer;
+  }
 }
+

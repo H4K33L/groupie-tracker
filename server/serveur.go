@@ -27,7 +27,6 @@ func main() {
 
 	http.HandleFunc("/Index", Index)
 	http.HandleFunc("/Accueil", Accueil)
-	http.HandleFunc("/Map", Map)
 	http.HandleFunc("/switch", Switch)
 	http.HandleFunc("/search", Search)
 
@@ -50,10 +49,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 func Accueil(w http.ResponseWriter, r *http.Request) {
 	tmpl = template.Must(template.ParseFiles("template/accueil.html"))
-	tmpl.Execute(w, liste)
-}
-func Map(w http.ResponseWriter, r *http.Request) {
-	tmpl = template.Must(template.ParseFiles("template/map.html"))
 	tmpl.Execute(w, liste)
 }
 

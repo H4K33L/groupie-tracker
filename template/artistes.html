@@ -7,25 +7,27 @@
     <link rel="stylesheet" href="/static/artistes.css">
 </head>
 <body>
+     <!-- Header section -->
      <header class="navbar">
             <h2>Groupie Tracker</h2>
         <ul>
-            <li><a href="/Index">home</a></li>
-            <li><a href="/Accueil">accueil</a></li>
-            <!-- <li><a href="/Map">villes</a></li> -->
+            <li><a href="/Index">Home</a></li>
+            <li><a href="/Accueil">Welcome</a></li>
         </ul>
     </header> 
     <h1>Artist Information</h1>
+    <!-- Main content section consists the artist information -->
     <div class="artist">
         <img src="{{ .Img }}" alt="{{ .Name }}">
         <h3>{{ .Name }}</h3>
         <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
         <p>Creation Date: {{ .CreationDate }}</p>
         <p>First Album: {{ .FirstAlbum }}</p>
-        <p>Dates : </p>
+        <p>Concert dates </p>
         {{ range $key, $value := .Information.DatesLocation}}
             <li> 
             {{range $value}}
+            <!-- This line creates a hyperlink pointing to a specific Google Maps -->
             <a class="key" target="_blank" href="https://www.google.fr/maps/place/{{$key}}">{{$key}}</a>
                 <li>{{.}}</li>
             {{end}}

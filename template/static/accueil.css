@@ -1,9 +1,16 @@
 body{
-    margin: 0;
-    padding: 0;
-    background-image: url('./images/audience.jpg');   
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-image: url('./images/audience.jpg'); 
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  background-size: 1500px; 
+  height: 100px; 
 }
 
+/* Header section */
 header {
   display: flex;
   justify-content: center;
@@ -26,16 +33,18 @@ header ul li a {
   color: black; 
   font-size: 25px;
 }
+
 ul li a:hover {
   color: #ffcc00;
   transition: 0.5s;
 } 
 
+/* Main content section with link to our hame page */
 .iteam {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px; 
+  margin-top: 200px;
 }
 
 .iteam ul {
@@ -55,84 +64,18 @@ ul li a:hover {
   text-decoration: none;
 }
 
-/* Style pour le pied de page */
-footer {
-  bottom: 0px;
-  z-index: 1000;
-  color: #fff;
-  position: absolute;
-  color: white;
-  text-align: center;
-  padding: 1em;
-  bottom: 0;
-  width: 100%;
-}
-
-.items {
-  display: flex;
-  justify-content: center;
-  
-}
-.items a {
-
-  text-decoration: none;
-  padding: 10px;
-  background-color: rgb(78, 115, 237);
-  margin: 10px;
-  border-radius: 50%; 
-}
-
-.items a i {
- font-size: 2em;
- color: black;
- opacity: 0,9;  
-}
-
-.items a:hover {
-  color: #ffcc00;
-  transition: 0.5s;
-} 
-
-.items a:hover i {
-  color: #ffcc00;
-  transition: 0.5s;
-} 
-
-.item {
-  margin: 30px 0;
-}
-
-.item ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
-
-.item ul li a {
-  text-decoration: none; 
-  color: black;
-  margin: 20px;
-  font-size: 1.3em;
-  opacity: 0.9;
-  transition: 0.5s;
-}
-
-.item ul li a a:hover {
-  opacity: 1;
-  
-}
-
-/*Media query pour tablettes */
+/*Media query for a tablet */
 @media screen and (max-width: 768px) {
 
   body {
     margin-top: 0px;
+    background-size: cover;
   }
 
   header {
     display: flex; 
-     justify-content: center; 
-     padding: 15px; 
+    justify-content: center; 
+    padding: 15px; 
   }
   
   header ul {
@@ -146,22 +89,22 @@ footer {
     text-align: center;
     font-size: 40px;
     margin-top: 30%;  
-  
   }   
 }
 
-/*Media query pour smartphone*/
+/*Media query for smartphone*/
 @media screen and (max-width: 480px) {
 
   body {
     margin-top: 0px;
+    background-size: cover;
+    width: 400px;
   }
 
   header {
     display: flex; 
-    /* justify-content: center; */
-    /* padding: 5px; */
   }
+
   header ul {
     display: flex;
     justify-content: center;
@@ -176,6 +119,9 @@ footer {
     display: flex;
     text-align: center;
     font-size: 34px;  
-  
   }   
+
+  .item ul li  {
+    left: 20px;
+  }
 }

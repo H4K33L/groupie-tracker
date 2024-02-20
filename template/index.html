@@ -4,38 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tacker</title>
-    <link rel="stylesheet" href="/static/home.css">
+    <link rel="stylesheet" href="./static/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
 </head>
 <body>   
     <header class="navbar">
         <div>
+            <!-- section menu burger -->
             <section class="paste-button">
                 <span class="mdi mdi-menu burger-menu"></span>
                 <section class="dropdown-content">
                     <a href="/Artistes">artistes</a>
-                    <a href="/Accueil">accueil</a>
-                    <a href="/Map">villes</a>
+                    <a href="/Accueil">Welcome</a>  
                 </section>
             </section>
+            <!-- bar de recherche -->
             <h1>Groupie Tracker</h1>
             <div class="container">
                 <div class="input"> 
                     <form action="/search" method="post">
                         <label for="site-search"></label>
                         <input class="id" type="search" id="site-search" name="q"/>
-                        <button type="submit">Rechercher</button>
+                        <button type="submit">search</button>
                     </form>
                 </div>
             </div>  
         </div>
         <ul>
-            <li><a href="/Accueil">accueil</a></li>
-            <li><a href="/Map">villes</a></li>
+            <li><a href="/Accueil">Welcome</a></li>
         </ul>
     </header>
     <hr>
+    <!-- section d'affichage d'artiste -->
 <h1>Artist Information</h1>
 <div class="artists-container">
     {{ range . }}
@@ -49,24 +50,28 @@
         <h3>{{ .Name }}</h3>     
       </article>
     {{ end }}
-  </div>
+</div>
+<ul class="up">
+    <a href="#" class="back-to-top" title="Remonter en haut de page"><i class="fas fa-arrow-up"></i></a>
+</ul>
+  <!-- footer  -->
     <footer>     
-            <div class="social">
-                <a href="https://www.facebook.com/votre-page-facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://twitter.com/votre-compte-twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.snapchat.com/votre-compte-snapchat" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
-                <a href="https://www.instagram.com/votre-compte-instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+        <div class="social">
+            <a href="https://www.facebook.com/votre-page-facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/votre-compte-twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.snapchat.com/votre-compte-snapchat" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+            <a href="https://www.instagram.com/votre-compte-instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
             <details>
                 <summary>Liste de navigation</summary>
                   <div class="item">
                         <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="">Team</a></li>
-                            <li><a href="">About</a><p></p></li>
+                            <li><a href="#">Front-end</a>Najm</li>
+                        <li><a href="#">Back-end </a>Kelyan, Godwin</li>
                         </ul>
                   </div>   
             </details>
     </footer>
 </body>
 </html>
+
