@@ -1,14 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: rgba(17, 86, 107, 0);
+  background-color: #d9d8e1; 
   max-width: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px; 
-  margin-right: 0px; 
-  margin-bottom: 0px;
-  margin-left: 0px;
 }
 
  /* Header section */
@@ -56,9 +49,6 @@ h1 {
   text-align: center;
   max-width: 500px;
   margin: 20px auto;
-  /* background-color: #fff; */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
    padding: 20px;
 }
 /* hyperlink pointing to a specific Google Maps */

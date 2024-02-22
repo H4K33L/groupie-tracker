@@ -1,13 +1,10 @@
 body{
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', sans-serif;
   min-height: 100vh;
   background-image: url('./images/audience.jpg'); 
   background-repeat: no-repeat;
   overflow-x: hidden;
   background-size: 1500px; 
-  height: 100px; 
 }
 
 /* Header section */
